@@ -3,6 +3,7 @@ import { Remote2FeatureFoo } from '@nx-playground/remote-2/feature-foo';
 import { Heading } from '@nx-playground/ui';
 import styles from './app.module.css';
 import clsx from 'clsx';
+import { Remote2FeatureBar } from '@nx-playground/remote-2/feature-bar';
 
 export function App() {
   function getLinkClassName({ isActive }: { isActive: boolean }) {
@@ -32,6 +33,11 @@ export function App() {
               remote-2 feature-foo
             </NavLink>
           </li>
+          <li>
+            <NavLink className={getLinkClassName} to="feature-bar">
+              remote-2 feature-bar
+            </NavLink>
+          </li>
         </ul>
       </div>
 
@@ -54,6 +60,15 @@ export function App() {
             <div>
               <Heading level={2}>remote-2 feature-foo</Heading>
               <Remote2FeatureFoo />
+            </div>
+          }
+        />
+        <Route
+          path="/feature-bar"
+          element={
+            <div>
+              <Heading level={2}>remote-2 feature-foo</Heading>
+              <Remote2FeatureBar />
             </div>
           }
         />

@@ -1,11 +1,20 @@
 import { lazy, Suspense } from 'react';
-import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import { Heading } from '@nx-playground/ui';
 import clsx from 'clsx';
 import styles from './app.module.css';
+import { ThemeButton } from '@nx-playground/theme';
 
 const Remote1 = lazy(() => import('remote-1/Module'));
 const Remote2 = lazy(() => import('remote-2/Module'));
+
+function HostPage() {
+  return (
+    <div className="container">
+      <Heading level={1}>host app</Heading>
+    </div>
+  );
+}
 
 export function App() {
   function getLinkClassName({ isActive }: { isActive: boolean }) {
@@ -15,7 +24,7 @@ export function App() {
   }
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <div>
       <nav className={styles['nav']}>
         <ul>
           <li>
@@ -33,21 +42,23 @@ export function App() {
               remote-2 app
             </NavLink>
           </li>
+
+          <li className={styles['nav-separator']} />
+
+          <li>
+            <ThemeButton />
+          </li>
         </ul>
       </nav>
 
-      <Routes>
-        <Route
-          index
-          element={
-            <div className="container">
-              <Heading level={1}>host app</Heading>
-            </div>
-          }
-        />
-        <Route path="/remote-1" element={<Remote1 />} />
-        <Route path="/remote-2/*" element={<Remote2 />} />
-      </Routes>
-    </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route index element={<HostPage />} />
+          <Route path="/remote-1" element={<Remote1 />} />
+          {/* Should have `/*` in path if remote app contain inner routes */}
+          <Route path="/remote-2/*" element={<Remote2 />} />
+        </Routes>
+      </Suspense>
+    </div>
   );
 }

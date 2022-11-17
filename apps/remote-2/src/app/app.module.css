@@ -1,6 +1,6 @@
 .link {
   border-radius: 0.75rem;
-  color: rgba(55, 65, 81, 1);
+  color: inherit;
   display: inline-block;
 }
 
@@ -14,9 +14,8 @@
 }
 
 .navigation {
-  padding: 1rem 2rem;
+  padding: 1rem 0;
   margin-bottom: 2rem;
-  border: 1px solid rgba(55, 65, 81, 0.3);
 }
 
 .navigation ul {

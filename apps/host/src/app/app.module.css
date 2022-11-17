@@ -1,6 +1,6 @@
 .link {
   border-radius: 0.75rem;
-  color: rgba(55, 65, 81, 1);
+  color: inherit;
   display: inline-block;
 }
 
@@ -28,4 +28,11 @@
 
 .nav ul li {
   margin: 0 2rem 0 0;
+}
+.nav ul li:last-child {
+  margin-right: 0;
+}
+
+.nav-separator {
+  flex: 1 1 auto;
 }

@@ -16,7 +16,15 @@ body {
 .container {
   margin-left: 2rem;
   margin-right: 2rem;
-  color: rgba(55, 65, 81, 1);
-
   margin-top: 2rem;
+}
+
+body:not(.dark) {
+  color: rgba(55, 65, 81, 1);
+  background-color: #fff;
+}
+
+body.dark {
+  color: #fff;
+  background-color: rgba(55, 65, 81, 1);
 }

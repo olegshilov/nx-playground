@@ -15,9 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-playground/remote-2/feature-bar": [
+        "libs/remote-2/feature-bar/src/index.ts"
+      ],
       "@nx-playground/remote-2/feature-foo": [
         "libs/remote-2/feature-foo/src/index.ts"
       ],
+      "@nx-playground/theme": ["libs/theme/src/index.ts"],
       "@nx-playground/ui": ["libs/ui/src/index.ts"]
     }
   },
