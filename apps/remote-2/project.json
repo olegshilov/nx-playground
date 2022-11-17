@@ -1,0 +1,99 @@
+{
+  "name": "remote-2",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/remote-2/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/remote-2",
+        "index": "apps/remote-2/src/index.html",
+        "baseHref": "/",
+        "main": "apps/remote-2/src/main.ts",
+        "polyfills": "apps/remote-2/src/polyfills.ts",
+        "tsConfig": "apps/remote-2/tsconfig.app.json",
+        "assets": ["apps/remote-2/src/favicon.ico", "apps/remote-2/src/assets"],
+        "styles": ["apps/remote-2/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "apps/remote-2/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/remote-2/src/environments/environment.ts",
+              "with": "apps/remote-2/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/remote-2/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "remote-2:build",
+        "hmr": true,
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "remote-2:build:development"
+        },
+        "production": {
+          "buildTarget": "remote-2:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/remote-2/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/remote-2/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "remote-2:build",
+        "port": 4203
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "remote-2:build:development"
+        },
+        "production": {
+          "buildTarget": "remote-2:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
