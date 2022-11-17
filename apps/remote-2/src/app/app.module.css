@@ -1,16 +1,16 @@
-.link {
+.link-2 {
   border-radius: 0.75rem;
   color: inherit;
   display: inline-block;
 }
 
-.link:hover {
-  opacity: 0.6;
+.link-2:hover {
+  opacity: 0.75;
   text-decoration: underline;
 }
 
-.link-active {
-  color: rgb(99, 191, 82);
+.link-2-active {
+  color: rgb(227, 91, 91);
 }
 
 .navigation {
