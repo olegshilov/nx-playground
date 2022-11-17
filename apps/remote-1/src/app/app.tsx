@@ -1,11 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-
-import { NxWelcome } from './nx-welcome';
+import { Heading } from '@nx-playground/ui';
 
 export function App() {
   return (
     <div className="container">
-      <NxWelcome title="remote-1" />
+      <Heading level={1}>remote-1 app</Heading>
     </div>
   );
 }
