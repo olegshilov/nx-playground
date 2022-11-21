@@ -28,6 +28,10 @@ jobs:
       node-version: 18.12.0
       yarn-version: 3.3.0
       install-commands: yarn install --immutable
+      artifacts-path: |
+        coverage
+        dist
+      artifacts-name: artifact
 
   agents:
     name: Nx Cloud - Agents
