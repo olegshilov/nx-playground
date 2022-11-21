@@ -2,3 +2,5 @@
 
 /dist
 /coverage
+.yarnrc.yml
+
