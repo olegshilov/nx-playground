@@ -43,6 +43,7 @@ jobs:
       install-commands: yarn install --immutable
 
   coverage:
+    name: Codecov
     runs-on: ubuntu-latest
     needs: main
     steps:
@@ -52,3 +53,6 @@ jobs:
           name: artifact
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
+        with:
+          directory: coverage
+          token: ${{ secrets.CODECOV_TOKEN }}
