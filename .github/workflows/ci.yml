@@ -27,7 +27,7 @@ jobs:
       #   yarn nx affected --target=build --parallel=3
       parallel-commands-on-agents: |
         yarn nx run-many --target=lint --parallel=3
-        yarn nx run-many --target=test --parallel=3
+        yarn nx run-many --target=test --parallel=3 --ci --code-coverage
         yarn nx run-many --target=build --parallel=3
       node-version: 18.12.1
       yarn-version: 3.3.0
